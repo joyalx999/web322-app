@@ -1,3 +1,16 @@
+/*********************************************************************************
+
+WEB322 – Assignment 02
+I declare that this assignment is my own work in accordance with Seneca  Academic Policy.  No part *  of this assignment has been copied manually or electronically from any other source (including 3rd party web sites) or distributed to other students.
+
+Name: Joyal Jaison
+Student ID: 121783237 
+Date: 06 Feb 2025
+Web App URL: https://5ab87ad3-9d02-4a9d-a048-6b0803e0a97e-00-2z419ssocnsr5.janeway.replit.dev/
+GitHub Repository URL: https://github.com/joyalx999/web322-app
+
+********************************************************************************/ 
+
 const fs = require("fs");
 
 let items = [];
