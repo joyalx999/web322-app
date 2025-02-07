@@ -1,3 +1,17 @@
+/*********************************************************************************
+
+WEB322 – Assignment 02
+I declare that this assignment is my own work in accordance with Seneca  Academic Policy.  No part *  of this assignment has been copied manually or electronically from any other source (including 3rd party web sites) or distributed to other students.
+
+Name: Mahathelge Nimesh Chandupa Peiris 
+Student ID: 152212239
+Date: 06/02/2025
+Cyclic Web App URL: _______________________________________________________
+GitHub Repository URL: https://github.com/Chandupa-Peiris/web322-app
+
+********************************************************************************/ 
+
+
 const storeService = require("./store-service");
 
 
