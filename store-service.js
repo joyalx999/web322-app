@@ -6,7 +6,7 @@ I declare that this assignment is my own work in accordance with Seneca  Academi
 Name: Joyal Jaison
 Student ID: 121783237
 Date: 03/05/2025
-Cyclic Web App URL: 
+Cyclic Web App URL: https://cc027433-addd-4872-8f13-a6254cd4b8e3-00-an0nmaez480p.picard.replit.dev/
 GitHub Repository URL: https://github.com/joyalx999/web322-app
 ********************************************************************************/ 
 
