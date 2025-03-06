@@ -7,7 +7,7 @@ Name: Joyal Jaison
 Student ID: 121783237
 Date: 03/05/2025
 Cyclic Web App URL: 
-GitHub Repository URL: 
+GitHub Repository URL: https://github.com/joyalx999/web322-app
 
 ********************************************************************************/ 
 
@@ -27,13 +27,7 @@ const multer = require("multer");
 const cloudinary = require('cloudinary').v2;
 const streamifier = require('streamifier');
 
-// Configure Cloudinary
-cloudinary.config({
-    cloud_name: "dcf8mkkft",
-    api_key: "513183961878192",
-    api_secret: "i5LZmE7hEogoBUWOoSMPGj5XMgY",
-    secure: true
-});
+
 
 // Set up multer (no local storage)
 const upload = multer();
