@@ -1,20 +1,30 @@
+
 /*********************************************************************************
-
-WEB322 – Assignment 02
-I declare that this assignment is my own work in accordance with Seneca  Academic Policy.  No part *  of this assignment has been copied manually or electronically from any other source (including 3rd party web sites) or distributed to other students.
-
-Name: Mahathelge Nimesh Chandupa Peiris 
-Student ID: 152212239
-Date: 06/02/2025
-Cyclic Web App URL: _______________________________________________________
-GitHub Repository URL: https://github.com/Chandupa-Peiris/web322-app
-
+*  WEB322 – Assignment 03
+*  I declare that this assignment is my own work in accordance with Seneca  Academic Policy.  No part 
+*  of this assignment has been copied manually or electronically from any other source 
+*  (including 3rd party web sites) or distributed to other students.
+* 
+*  Name:_Mahathelge Nimesh Chandupa Peiris__ Student ID:152212239 Date: 05/03/2025
+*
+*  Cyclic Web App URL: ________________________________________________________
+* 
+*  GitHub Repository URL: https://github.com/Chandupa-Peiris/web322-app
+*
 ********************************************************************************/ 
 
 const fs = require("fs");
 const path = require("path");
 
 let items = [];
+
+/*let items = [
+    { id: 1, category: 5, postDate: "2024-01-10" },
+    { id: 2, category: 3, postDate: "2023-11-15" },
+    { id: 3, category: 5, postDate: "2024-02-05" },
+    { id: 4, category: 2, postDate: "2022-08-22" }
+];
+*/
 let categories = [];
 
 function initialize() {
@@ -69,5 +79,95 @@ function getCategories() {
     });
 }
 
-//  Export all functions
-module.exports = { initialize, getAllItems, getPublishedItems, getCategories };
+// Step 3: Add the addItem function (Updated in Ass 4)
+function addItem(itemData) {
+    return new Promise((resolve, reject) => {
+        // Set the published property to false if undefined
+        if (itemData.published === undefined) {
+            itemData.published = false;
+        }
+
+        // Set the postDate to the current date in YYYY-MM-DD format
+        itemData.postDate = new Date().toISOString().split('T')[0];
+
+        // Set the id to the length of the items array + 1
+        itemData.id = items.length + 1;
+
+        // Push the new item to the items array
+        items.push(itemData);
+
+        // Write the updated items array to items.json
+        fs.writeFile(
+            path.join(__dirname, "data", "items.json"),
+            JSON.stringify(items, null, 2),
+            (err) => {
+                if (err) {
+                    reject("Error saving item data");
+                    return;
+                }
+
+                // Resolve the promise with the newly added item
+                resolve(itemData);
+            }
+        );
+    });
+}
+
+//Part 4
+
+
+
+
+// Step 1: getItemsByCategory(category)
+function getItemsByCategory(category) {
+    return new Promise((resolve, reject) => {
+        const filteredItems = items.filter(item => item.category == category);
+        if (filteredItems.length > 0) {
+            resolve(filteredItems);
+        } else {
+            reject("no results returned");
+        }
+    });
+}
+
+// Step 2: getItemsByMinDate(minDateStr)
+function getItemsByMinDate(minDateStr) {
+    return new Promise((resolve, reject) => {
+        const filteredItems = items.filter(item => new Date(item.postDate) >= new Date(minDateStr));
+        if (filteredItems.length > 0) {
+            resolve(filteredItems);
+        } else {
+            reject("no results returned");
+        }
+    });
+}
+
+// Step 3: getItemById(id)
+function getItemById(id) {
+    return new Promise((resolve, reject) => {
+        const foundItem = items.find(item => item.id == id);
+        if (foundItem) {
+            resolve(foundItem);
+        } else {
+            reject("no result returned");
+        }
+    });
+}
+
+
+// Export all functions including the new addItem function
+module.exports = { initialize, getAllItems, getPublishedItems, getCategories, addItem, getItemsByCategory, getItemsByMinDate, getItemById };
+
+module.exports.getPublishedItemsByCategory = function(category) {
+    return new Promise((resolve, reject) => {
+        let filteredItems = items.filter(item => item.published == true && item.category == category);
+        if (filteredItems.length > 0) {
+            resolve(filteredItems);
+        } else {
+            reject("no results returned");
+        }
+    });
+};
+
+
+
