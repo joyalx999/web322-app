@@ -1,15 +1,14 @@
 /*********************************************************************************
-*  WEB322 – Assignment 03
+*  WEB322 – Assignment 04
 *  I declare that this assignment is my own work in accordance with Seneca  Academic Policy.  No part 
 *  of this assignment has been copied manually or electronically from any other source 
 *  (including 3rd party web sites) or distributed to other students.
 * 
-*  Name:_Mahathelge Nimesh Chandupa Peiris__ Student ID:152212239 Date: 05/03/2025
-*
-*  Cyclic Web App URL: ________________________________________________________
-* 
-*  GitHub Repository URL: https://github.com/Chandupa-Peiris/web322-app
-*
+*   Name: Joyal Jaison
+*   Student ID: 121783237
+*   Date: 21/03/2025
+*  Cyclic Web App URL: 
+*  GitHub Repository URL: 
 ********************************************************************************/ 
 
 
@@ -39,9 +38,9 @@ const streamifier = require('streamifier');
 
 // Configure Cloudinary
 cloudinary.config({
-    cloud_name: "dcf8mkkft",
-    api_key: "513183961878192",
-    api_secret: "i5LZmE7hEogoBUWOoSMPGj5XMgY",
+    cloud_name: "dlsggx7qm",
+    api_key: "527346615744115",
+    api_secret: "KFlLzS9EN_1xVQuVpewXrSgT70k",
     secure: true
 });
 
@@ -243,15 +242,6 @@ app.get("/item/:value", (req, res) => {
         .catch((err) => res.status(404).json({ message: err }));
 });
 
-
-
-// Route to get all categories
-/*app.get("/categories", (req, res) => {
-    storeService.getCategories()
-        .then((data) => res.json(data))
-        .catch((err) => res.status(404).json({ message: err }));
-}); */
-
 // Route to get all categories
 app.get("/categories", (req, res) => {
     storeService.getCategories()
@@ -314,13 +304,6 @@ app.post("/items/add", upload.single("featureImage"), (req, res) => {
         });
     }
 });
-
-
-// Assignment 3
-
-//app.get("/items/add", (req, res) => {
-  //  res.sendFile(path.join(__dirname, "views", "addItem.html"));
-//});
 
 app.get("/items/add", (req, res) => {
     res.render("addItem");
