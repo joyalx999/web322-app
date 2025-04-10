@@ -182,7 +182,7 @@ app.get("/categories/delete/:id", (req, res) => {
 });
 
 // Shop
-app.get("/shop", async (req, res) => {
+app.get("/views/shop", async (req, res) => {
     let viewData = {};
 
     try {
